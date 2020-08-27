@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,12 +31,13 @@ public class MainActivity extends AppCompatActivity {
         tvResult = findViewById(R.id.tv_result);
 
         etInput.addTextChangedListener(onTextChangedListener());
-122
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String result = etInput.getText().toString();
+                String result2 = etInput.getText().toString().replaceAll(",", "");
 
-
+                tvResult.setText("Result: " + result + " | origin : " + result2);
             }
         });
     }
